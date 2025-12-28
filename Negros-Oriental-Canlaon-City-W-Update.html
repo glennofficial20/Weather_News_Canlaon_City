@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LIVE Weather News Update</title>
+<title>LIVE Weather & Volcano News Update</title>
 
 <style>
     body {
@@ -14,7 +14,7 @@
     }
 
     .news-container {
-        max-width: 900px;
+        max-width: 950px;
         margin: 40px auto;
         background: #121a2f;
         border-radius: 14px;
@@ -64,14 +64,32 @@
         margin-bottom: 18px;
     }
 
-    .news-body h2 {
-        margin-top: 0;
+    h2 {
         font-size: 20px;
         color: #ffd166;
+        margin-top: 0;
+    }
+
+    .section {
+        margin-top: 30px;
+        padding: 22px;
+        background: #1b2542;
+        border-radius: 12px;
+    }
+
+    .section h3 {
+        margin-top: 0;
+        color: #ffb703;
+        font-size: 18px;
+        letter-spacing: 0.5px;
+    }
+
+    .section p {
+        margin: 6px 0;
     }
 
     .weather-list {
-        margin: 20px 0;
+        margin: 15px 0;
         padding-left: 18px;
     }
 
@@ -87,7 +105,7 @@
     }
 
     .stat-box {
-        background: #1b2542;
+        background: #0e162a;
         padding: 18px;
         border-radius: 12px;
         text-align: center;
@@ -104,9 +122,102 @@
         color: #4cc9f0;
     }
 
+    .alert-level {
+        font-weight: bold;
+        color: #ff4d6d;
+    }
+
     .news-footer {
         background: #0e162a;
         padding: 14px;
+        text-align: center;
+        font-size: 13px;
+        opacity: 0.7;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="news-container">
+    <div class="news-header">
+        <h1>LIVE NEWS UPDATE</h1>
+        <div class="live-badge">LIVE</div>
+    </div>
+
+    <div class="news-body">
+        <div class="datetime" id="phTime">
+            Loading Philippine Date & Time...
+        </div>
+
+        <div class="location">
+            📍 Focus Area: Canlaon City, Negros Oriental
+        </div>
+
+        <h2>Weather Systems Affecting the Country</h2>
+
+        <ul class="weather-list">
+            <li><strong>Northeast Monsoon</strong> affecting Northern and Central Luzon.</li>
+            <li><strong>Shear Line</strong> affecting the eastern sections of Southern Luzon and Visayas.</li>
+            <li><strong>Easterlies</strong> affecting the rest of the country, including <strong>Canlaon City</strong>.</li>
+        </ul>
+
+        <div class="weather-stats">
+            <div class="stat-box">
+                <span>Wind Speed</span>
+                <strong>1 km/h</strong>
+            </div>
+            <div class="stat-box">
+                <span>Temperature</span>
+                <strong>22°C</strong>
+            </div>
+        </div>
+
+        <!-- BULKANG KANLAON SECTION -->
+        <div class="section">
+            <h3>🌋 BULKANG KANLAON</h3>
+            <p><strong>Buod ng 24 oras na pagmamanman</strong></p>
+            <p>📅 28 Disyembre 2025 • ⏰ Alas-12 ng umaga</p>
+            <hr style="border: 0.5px solid #2f3c66; margin: 15px 0;">
+
+            <p><strong>Volcano:</strong> Kanlaon</p>
+            <p><strong>Alert Level:</strong> <span class="alert-level">Alert Level 2</span></p>
+            <p><strong>Status ng Alert Level:</strong> Pagtaas ng aktibidad</p>
+            <p><strong>Volcanic Earthquake:</strong> 3 volcanic earthquakes</p>
+            <p><strong>Sulfur Dioxide Flux (SO₂):</strong> 1,286 tonelada / araw <em>(27 Disyembre 2025)</em></p>
+            <p><strong>Plume (Steaming):</strong> 75 metrong taas; mahinang pagsingaw; napadpad sa timog-kanluran</p>
+            <p><strong>Ground Deformation:</strong> Pamamaga ng bulkan</p>
+        </div>
+    </div>
+
+    <div class="news-footer">
+        © 2025 LIVE Weather & Volcano Bulletin • Philippines • Stay Alert • Stay Safe
+    </div>
+</div>
+
+<script>
+function updatePhilippineTime() {
+    const options = {
+        timeZone: "Asia/Manila",
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true
+    };
+    const now = new Date();
+    document.getElementById("phTime").innerHTML =
+        "📅 " + now.toLocaleString("en-US", options) + " (Philippine Time)";
+}
+setInterval(updatePhilippineTime, 1000);
+updatePhilippineTime();
+</script>
+
+</body>
+</html>        padding: 14px;
         text-align: center;
         font-size: 13px;
         opacity: 0.7;
