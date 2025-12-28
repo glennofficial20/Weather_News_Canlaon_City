@@ -14,7 +14,7 @@
     }
 
     .news-container {
-        max-width: 950px;
+        max-width: 980px;
         margin: 40px auto;
         background: #121a2f;
         border-radius: 14px;
@@ -77,7 +77,6 @@
         margin: 15px 0 20px;
         border-radius: 6px;
         font-weight: 600;
-        color: #e9ffe9;
     }
 
     .section {
@@ -101,6 +100,22 @@
 
     .weather-list li {
         margin-bottom: 10px;
+    }
+
+    .name-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .name-box {
+        background: #0e162a;
+        padding: 10px;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: 600;
+        color: #4cc9f0;
     }
 
     .weather-stats {
@@ -152,9 +167,7 @@
     </div>
 
     <div class="news-body">
-        <div class="datetime" id="phTime">
-            Loading Philippine Date & Time...
-        </div>
+        <div class="datetime" id="phTime">Loading Philippine Date & Time...</div>
 
         <div class="location">
             📍 Focus Area: Canlaon City, Negros Oriental
@@ -164,7 +177,7 @@
         <h2>Weather Situation</h2>
 
         <div class="notice">
-            🌤️ WEATHER ADVISORY: <strong>NO TROPICAL CYCLONE OCCUR</strong> anywhere in the Philippine Area of Responsibility (PAR).
+            🌤️ WEATHER ADVISORY: <strong>NO TROPICAL CYCLONE OCCUR</strong> within the Philippine Area of Responsibility (PAR).
         </div>
 
         <ul class="weather-list">
@@ -184,25 +197,55 @@
             </div>
         </div>
 
-        <!-- BULKANG KANLAON SECTION -->
+        <!-- 2026 TROPICAL CYCLONE NAMES -->
+        <div class="section">
+            <h3>🌪️ Weather Forecast 2026 – Tropical Cyclone Names</h3>
+            <div class="name-grid">
+                <div class="name-box">Ada</div>
+                <div class="name-box">Basyang</div>
+                <div class="name-box">Caloy</div>
+                <div class="name-box">Domeng</div>
+                <div class="name-box">Ester</div>
+                <div class="name-box">Francisco</div>
+                <div class="name-box">Gardo</div>
+                <div class="name-box">Henry</div>
+                <div class="name-box">Inday</div>
+                <div class="name-box">Josie</div>
+                <div class="name-box">Kiyapo</div>
+                <div class="name-box">Luis</div>
+                <div class="name-box">Maymay</div>
+                <div class="name-box">Neneng</div>
+                <div class="name-box">Obet</div>
+                <div class="name-box">Pilandok</div>
+                <div class="name-box">Queenie</div>
+                <div class="name-box">Rosal</div>
+                <div class="name-box">Samuel</div>
+                <div class="name-box">Tomas</div>
+                <div class="name-box">Umberto</div>
+                <div class="name-box">Venus</div>
+                <div class="name-box">Waldo</div>
+                <div class="name-box">Yayang</div>
+                <div class="name-box">Zeny</div>
+            </div>
+        </div>
+
+        <!-- BULKANG KANLAON -->
         <div class="section">
             <h3>🌋 BULKANG KANLAON</h3>
             <p><strong>Buod ng 24 oras na pagmamanman</strong></p>
             <p>📅 28 Disyembre 2025 • ⏰ Alas-12 ng umaga</p>
-            <hr style="border: 0.5px solid #2f3c66; margin: 15px 0;">
-
-            <p><strong>Volcano:</strong> Kanlaon</p>
+            <hr style="border:0.5px solid #2f3c66; margin:15px 0;">
             <p><strong>Alert Level:</strong> <span class="alert-level">Alert Level 2</span></p>
-            <p><strong>Status ng Alert Level:</strong> Pagtaas ng aktibidad</p>
-            <p><strong>Volcanic Earthquake:</strong> 3 volcanic earthquakes</p>
-            <p><strong>Sulfur Dioxide Flux (SO₂):</strong> 1,286 tonelada / araw <em>(27 Disyembre 2025)</em></p>
-            <p><strong>Plume (Steaming):</strong> 75 metrong taas; mahinang pagsingaw; napadpad sa timog-kanluran</p>
+            <p><strong>Status:</strong> Pagtaas ng aktibidad</p>
+            <p><strong>Volcanic Earthquakes:</strong> 3 events</p>
+            <p><strong>SO₂ Flux:</strong> 1,286 tonelada/araw (27 Disyembre 2025)</p>
+            <p><strong>Plume:</strong> 75 m; mahinang pagsingaw; timog-kanluran</p>
             <p><strong>Ground Deformation:</strong> Pamamaga ng bulkan</p>
         </div>
     </div>
 
     <div class="news-footer">
-        © 2025 LIVE Weather & Volcano Bulletin • Philippines • Stay Alert • Stay Safe
+        © 2025–2026 LIVE Weather & Volcano Bulletin • Philippines • Stay Alert • Stay Safe
     </div>
 </div>
 
@@ -219,9 +262,8 @@ function updatePhilippineTime() {
         second: "2-digit",
         hour12: true
     };
-    const now = new Date();
     document.getElementById("phTime").innerHTML =
-        "📅 " + now.toLocaleString("en-US", options) + " (Philippine Time)";
+        "📅 " + new Date().toLocaleString("en-US", options) + " (Philippine Time)";
 }
 setInterval(updatePhilippineTime, 1000);
 updatePhilippineTime();
